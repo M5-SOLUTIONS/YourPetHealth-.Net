@@ -1,0 +1,67 @@
+﻿@model YourPetHealth.Models.Consulta
+
+@{
+    ViewData["Title"] = "Confirmar Exclusão - Consulta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-lg">
+                <div class="card-header bg-danger text-black py-3">
+                    <h4 class="mb-0 text-center">
+                        <i class="fas fa-trash-alt"></i> Confirmar Exclusão
+                    </h4>
+                </div>
+                
+                <div class="card-body p-4">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Atenção:</strong> Esta ação não pode ser desfeita!
+                    </div>
+
+                    <h5 class="mb-3">Dados da Consulta:</h5>
+                    
+                    <dl class="row">
+                        <dt class="col-sm-3 fw-bold">Tipo:</dt>
+                        <dd class="col-sm-9">@Model.Tipo</dd>
+
+                        <dt class="col-sm-3 fw-bold">Descrição:</dt>
+                        <dd class="col-sm-9">@Model.Descricao</dd>
+
+                        <dt class="col-sm-3 fw-bold">Data:</dt>
+                        <dd class="col-sm-9">@Model.Data.ToString("dd/MM/yyyy HH:mm")</dd>
+
+                        <dt class="col-sm-3 fw-bold">Observações:</dt>
+                        <dd class="col-sm-9">@Model.Observacoes</dd>
+
+                        <dt class="col-sm-3 fw-bold">Status:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-info">@Model.Status</span>
+                        </dd>
+
+                        <dt class="col-sm-3 fw-bold">Pet:</dt>
+                        <dd class="col-sm-9">@(Model.Pet?.Nome ?? "Não informado")</dd>
+
+                        <dt class="col-sm-3 fw-bold">Veterinário:</dt>
+                        <dd class="col-sm-9">@(Model.Veterinario?.Nome ?? "Não informado") (@Model.Veterinario?.Crmv)</dd>
+                    </dl>
+                </div>
+
+                <div class="card-footer bg-light d-flex justify-content-between p-4">
+                    <a asp-action="Index" class="btn btn-secondary px-5">
+                        <i class="fas fa-arrow-left"></i> Cancelar
+                    </a>
+                    
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger px-5">
+                            <i class="fas fa-trash"></i> Sim, Excluir Consulta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

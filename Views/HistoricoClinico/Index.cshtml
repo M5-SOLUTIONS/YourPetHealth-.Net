@@ -1,0 +1,52 @@
+﻿@model IEnumerable<YourPetHealth.Models.Consulta>
+
+@{
+    ViewData["Title"] = "Historico Clinico";
+}
+
+<h1>Historico Clinico</h1>
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary navbar-btn">Voltar</a>
+<hr />
+<form asp-action="Index" name="TheForm" id="TheForm"> 
+    <select id="PetId" name="PetId" class="form-control" asp-items="ViewBag.PetId"></select>
+     <button type="button" class="btn btn-primary" onclick="document.getElementById('TheForm').submit();">
+        Consultar
+     </button>
+</form>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pet)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Nome)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
