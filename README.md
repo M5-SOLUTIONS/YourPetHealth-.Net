@@ -65,11 +65,13 @@ Todas as operações de criação utilizam **TempData** para exibir mensagens de
 
 Configure a Connection String
 Abra o arquivo appsettings.json e configure a string de conexão com o Oracle:JSON{
+ ```
  {
   "ConnectionStrings": {
     "OracleConnection": "User Id=Seu_Usuario;Password=Sua_Senha;Data Source=Sua_Conexao;"
   }
 }
+ ```
 Atualize o banco de dados
  ```
 Bash
@@ -81,8 +83,14 @@ Bash
 dotnet run
  ```
 Ou pressione F5 no Visual Studio.
+
 Acesse o sistema
-Abra o navegador em: https://localhost:xxxx (ou a porta que aparecer no terminal)
+
+Abra o navegador em: 
+
+https://localhost:xxxx 
+
+(ou a porta que aparecer no terminal)
 
 
 Tecnologias Utilizadas
