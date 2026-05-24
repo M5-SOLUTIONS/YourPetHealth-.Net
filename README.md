@@ -114,3 +114,11 @@ YourPetHealth-.Net
 └── Program.cs            
 
  ```
+
+# Desenvolvido por
+
+- Erick de Faria Gama RM561951
+- Matheus Nascimento Corregio RM563765
+- Guilherme Cintra RM562850
+- Pedro Fonseca de Almeida RM563466
+- Daniel Fonseca de Almeida RM563045
